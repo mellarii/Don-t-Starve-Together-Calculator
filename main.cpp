@@ -2,6 +2,7 @@
 #include <cmath>
 #include <limits>
 #include <string>
+#include <utility>
 
 constexpr float INFINITE_HITPOINTS = std::numeric_limits<float>::max();
 constexpr int INFINITE_USAGE = std::numeric_limits<int>::max();
@@ -12,6 +13,12 @@ class EffectManager {
     public:
     void applyWeakness() { 
         totalEffectMultiplier *= 1.25f; 
+    }
+    void moonEnemyWeakness() {
+        totalEffectMultiplier *= 1.10f;
+    }
+    void shadowEnemyWeakness() {
+        totalEffectMultiplier *= 1.10f;
     }
 
     float getMultiplier() const { return totalEffectMultiplier; };
@@ -89,7 +96,7 @@ class Boss {
         return hitDmg;
     }
 
-    int hitsToKill(const Character& attacer, const EffectManager& currentEffects, const Weapon& currentWeapon) const {
+    virtual int hitsToKill(const Character& attacer, const EffectManager& currentEffects, const Weapon& currentWeapon) const {
         float per = dmg(attacer, currentEffects, currentWeapon);
 
         return static_cast<int>(std::ceil(health/per));
@@ -139,7 +146,20 @@ class AlterGuardian : public Boss {
 
 class WagbossRobotPosessed : public Boss {
     public:
-    WagbossRobotPosessed() : Boss((10000.0f + 22500.0f + 16000.0f), 1, 0) {}
+    WagbossRobotPosessed() : Boss((22500.0f + 16000.0f), 1, 0) {}
+    
+    int hitsToKill(const Character& attacer, const EffectManager& currentEffects, const Weapon& currentWeapon) const override {
+        float charDmgBonus = attacer.getCharacterDmgBonus();
+        float EffectMultiplier = currentEffects.getMultiplier();
+        float dfltDmg = currentWeapon.getDfltDamage();
+        float trueDmg = currentWeapon.getTrueDamage();
+
+        float per = dmg(attacer, currentEffects, currentWeapon);
+        float hit_FFase = (dfltDmg * charDmgBonus * EffectMultiplier) + trueDmg - trueDefence;
+
+        return static_cast<int>(std::ceil(health/per) + std::ceil(10000.0f/hit_FFase));
+    }
+
     std::string name() const override {
         return "Alter Guardian -> Wagboss Robot Posessed (1 - 3 phases) -> Lunar Rift";
     }
@@ -164,8 +184,8 @@ class AntLion : public Boss {
 int main() {
     int choice_character = 3;
     int choice_weapon = 3;
-    int choice_debuffs = 2;
-    int choice_boss = 4;
+    int choice_debuffs = 5;
+    int choice_boss = 7;
 
     Character Character;
     Weapon Weapon;
@@ -201,11 +221,14 @@ int main() {
         default: Weapon.selectHand(); break;
     };
 
-    std::cout << " \nNow select Debufs (at bosses):\n  1) Weakness (x1.25)\n  2) None\n";
+    std::cout << " \nNow select Debufs (at bosses):\n  1) Weakness (x1.25)\n  2) Moon Enemy Weakness (x1.10 and if character have buffs in his skill tree)\n  3) Shadow Enemy Weakness (x1.10 and if character have buffs in his skill tree)\n  4) None\n";
     std::cin >> choice_debuffs;
     switch (choice_debuffs)
     {
-        case 1: Effects.applyWeakness(); break;
+        case 1: Effects.applyWeakness();
+        case 2: Effects.moonEnemyWeakness();
+        case 3: Effects.shadowEnemyWeakness();
+        default: break;
     };
 
     std::cout << " \nNow select Boss:\n  1) Bee Quin\n  2) Toad\n  3) Alter Guardian\n  4) Klaus\n  5) AntLion\n  6) WagBoss Possesed\n";

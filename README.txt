@@ -8,7 +8,21 @@
 
 ########################################################
 
-B---/ v1.0b /---B
+C---( v1.0c )---C
+
+- About Boses:
+-- Fixed Bug with Wagboss Robot (check v1.0b).
+
+- About Effects:
+-- Added 2 new effects:
+--- Moon Enemy, Shadow Enemy. (In game some character have buffs to 10% in skill tree when you defeat AtriumStalcer/AlterGuardian firstly)
+
+- About the server part:
+-- Now function hitsToKill is virtual.
+
+C---------------C
+
+B---( v1.0b )---B
 
 - About Boses:
 -- Changed name - defoultManeken -> Dummy.
@@ -33,6 +47,7 @@ have resistance to physical damage, but the others should. I'll fix that in the 
 
 - About the server part:
 -- Large number of uses -> INFINIT_USAGE (where it's needed).
+
 B---------------B
 
 #-----/ v1.0 /-----#
