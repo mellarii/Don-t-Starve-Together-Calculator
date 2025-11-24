@@ -20,13 +20,12 @@ float Boss::dmg(const Character& attacker, const EffectManager& currentEffects, 
         hitDmg = (dfltDmg * charDmgBonus * effectMultiplier) + trueDmg - trueDefence;
     }
 
-    return hitDmg > 0.0f ? hitDmg : 0.0f;
+    return hitDmg;
 }
 
 int Boss::hitsToKill(const Character& attacker, const EffectManager& effects, const Weapon& weapon) const {
     float perHit = dmg(attacker, effects, weapon);
     if (perHit <= 0.0f) {
-        // Нельзя убить или очень-очень много ударов нужны — возвращаем большой int
         return std::numeric_limits<int>::max();
     }
     return static_cast<int>(std::ceil(health / perHit));
