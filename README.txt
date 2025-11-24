@@ -8,6 +8,21 @@
 
 ########################################################
 
+#-----/ v1.1 /-----#
+
+- About Boses :
+-- Added six new booses:
+--- Bearger, Dragonfly, Moose, Deerclops, Minotaur, Eye of Terror.
+
+- About server part:
+-- File decomposition has been carried out:
+--- Bosses main.cpp -> boss.cpp & boss.h ;
+--- Characters main.cpp -> characters.cpp & characters.h ;
+--- Effects main.cpp -> effects.cpp & effects.h ;
+--- Weapons main.cpp -> weapon.cpp & weapon.h .
+
+#------------------#
+
 C---( v1.0c )---C
 
 - About Boses:
