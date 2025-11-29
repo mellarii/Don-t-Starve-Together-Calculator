@@ -21,6 +21,22 @@
 
 ########################################################
 
+C---( v1.1b )---C
+
+- About Boses:
+-- Added one new boss:
+--- Twins of Terror.
+
+- About Weapons:
+-- Added 10 new Weapons:
+--- Shadow Battle Axe, Cloth Scyte, Void Lunar Part, Night Sword, Class Scutter, Tentacle Spike, 
+Shield of Terror, Spear, Wigfrid's spear, Rabbit King Spear.
+
+- About the server part:
+-- Added CMakem for more simple compile&run project
+
+C---------------C
+
 #-----/ v1.1 /-----#
 
 - About Boses :

@@ -3,8 +3,7 @@
 #include <cmath>
 #include <limits>
 
-Boss::Boss(float h, int d, int td)
-    : health(h), trueDefence(td), defence(d ? 1 : 0) {}
+Boss::Boss(float h, int d, int td) : health(h), trueDefence(td), defence(d ? 1 : 0) {}
 
 float Boss::dmg(const Character& attacker, const EffectManager& currentEffects, const Weapon& currentWeapon) const {
     float charDmgBonus = attacker.getCharacterDmgBonus();
@@ -14,8 +13,7 @@ float Boss::dmg(const Character& attacker, const EffectManager& currentEffects, 
 
     float hitDmg = 0.0f;
     if (defence > 0) {
-        hitDmg = (std::sqrt((dfltDmg * charDmgBonus * effectMultiplier) * 4.0f + 64.0f) - 8.0f) * 4.0f
-                 + trueDmg - trueDefence;
+        hitDmg = (std::sqrt((dfltDmg * charDmgBonus * effectMultiplier) * 4.0f + 64.0f) - 8.0f) * 4.0f + trueDmg - trueDefence;
     } else {
         hitDmg = (dfltDmg * charDmgBonus * effectMultiplier) + trueDmg - trueDefence;
     }
@@ -89,6 +87,10 @@ std::string Klaus::name() const {
 
 std::string AntLion::name() const {
     return "AntLion";
+}
+
+std::string TwinsOfTerror::name() const {
+    return "TwinsOfTerror";
 }
 
 int WagbossRobotPosessed::hitsToKill(const Character& attacker, const EffectManager& currentEffects, const Weapon& currentWeapon) const {

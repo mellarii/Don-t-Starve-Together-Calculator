@@ -110,4 +110,10 @@ public:
     std::string name() const override;
 };
 
+class TwinsOfTerror : public Boss {
+    public:
+    TwinsOfTerror() : Boss(20000.0f, 0, 0) {}
+    std::string name() const override;
+};
+
 #endif // BOSS_H
