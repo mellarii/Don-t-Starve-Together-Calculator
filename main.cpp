@@ -7,10 +7,6 @@
 #include <utility>
 
 int main() {
-    int choice_character = 3;
-    int choice_weapon = 13;
-    int choice_debuffs = 5;
-    int choice_boss = 14;
 
     Character Character;
     Weapon Weapon;
@@ -33,6 +29,16 @@ int main() {
     Eyeofterror Eyeofterror;
     TwinsOfTerror TwinsOfTerror;
     Boss* selectedBoss = &Dummy;
+
+    bool keepRunning = true;
+
+    while (keepRunning) {
+
+    int choice_character = 3;
+    int choice_weapon = 13;
+    int choice_debuffs = 5;
+    int choice_boss = 14;
+    char continueChoice = ' ';
 
     std::cout << "Select the terms for calculation: \n First - Character:\n  1) Wigfrid (x1.25)\n  2) Wolvgan (x2.0 in stongest form)\n  3) Wess (x0.75)\n  4) Other characters (deafoult dmg)\n";
     std::cin >> choice_character;
@@ -106,19 +112,34 @@ int main() {
     };
 
     float perHit = selectedBoss->dmg(Character, Effects, Weapon);
-    if (choice_boss > 13) { std::cout << "Damage per hit: " << perHit << "\n"; 
+    if (choice_boss > 13) { 
+        std::cout << "Damage per hit: " << perHit << "\n"; 
     } else {
-    std::cout << "\nSelected Boss: " << selectedBoss->name() << "\n";
-    if (perHit <=0) {
-        std::cout << "DMG is so low, you cant defeat any Boss.";
-    } else {
-        int hits = selectedBoss->hitsToKill(Character, Effects, Weapon);
-        int needWeapons = selectedBoss->needWeapon(Character, Effects, Weapon);
-        std::cout << "Damage per hit: " << perHit << "\n";
-        std::cout << "Hits to kill boss: " << hits << "\n";
-        std::cout << "Nedd weapon: " << needWeapons << "\n" << std::endl;
+        std::cout << "\nSelected Boss: " << selectedBoss->name() << "\n";
+        if (perHit <=0) {
+            std::cout << "DMG is so low, you cant defeat any Boss.";
+        } else {
+            int hits = selectedBoss->hitsToKill(Character, Effects, Weapon);
+            int needWeapons = selectedBoss->needWeapon(Character, Effects, Weapon);
+            std::cout << "Damage per hit: " << perHit << "\n";
+            std::cout << "Hits to kill boss: " << hits << "\n";
+            std::cout << "Nedd weapon: " << needWeapons << "\n" << std::endl;
+        }
     }
+
+    std::cout << "Do you want to continue? (Y/N)";
+    std::cin >> continueChoice;
+
+    if (continueChoice != 'Y' and continueChoice != 'y') {
+        keepRunning = false;
     }
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+    std::cout << "Press Enter to exit...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
 
     return 0;
 }

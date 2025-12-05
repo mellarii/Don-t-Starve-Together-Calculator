@@ -21,6 +21,23 @@
 
 ########################################################
 
+#-----/ v1.1 /-----#
+
+- About the server part:
+-- Now you can left programm when you need:
+--- std::cout << "Do you want to continue? (Y/N)";
+--- std::cin >> continueChoice;
+
+-- If choose Y (yes), programm restarts:
+--- std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+-- If the program is terminated, the window will not close until you press enter:
+--- std::cout << "Press Enter to exit...";
+--- std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+--- std::cin.get();
+
+#------------------#
+
 C---( v1.1b )---C
 
 - About Boses:
