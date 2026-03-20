@@ -21,7 +21,7 @@
 
 ########################################################
 
-#-----/ v1.1 /-----#
+#-----/ v1.2 /-----#
 
 - About the server part:
 -- Now you can left programm when you need:
@@ -38,7 +38,7 @@
 
 #------------------#
 
-C---( v1.1b )---C
+C---( v1.1a )---C
 
 - About Boses:
 -- Added one new boss:
@@ -69,7 +69,7 @@ C---------------C
 
 #------------------#
 
-C---( v1.0c )---C
+B---( v1.0b )---B
 
 - About Boses:
 -- Fixed Bug with Wagboss Robot (check v1.0b).
@@ -81,9 +81,9 @@ C---( v1.0c )---C
 - About the server part:
 -- Now function hitsToKill is virtual.
 
-C---------------C
+B---------------B
 
-B---( v1.0b )---B
+A---( v1.0a )---A
 
 - About Boses:
 -- Changed name - defoultManeken -> Dummy.
@@ -109,7 +109,7 @@ have resistance to physical damage, but the others should. I'll fix that in the 
 - About the server part:
 -- Large number of uses -> INFINIT_USAGE (where it's needed).
 
-B---------------B
+A---------------A
 
 #-----/ v1.0 /-----#
 
