@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.3
+- **Chore**: Now literal updates and UPDATES.md file updates will be released in separate branches. 
+- **Characters**: Added Wendy to the menu (x0.75 dmg)
+- **Bugfix**: Removed global dead variables in weapon.cpp and effects.cpp
+- **Bugfix**: Added default member initializers for Weapon (members were uninitialized)
+- **Bugfix**: Removed dead `selectEffects()` that created a local object instead of modifying `this`
+- **Bugfix**: Added input validation — bad input no longer causes infinite loop
+- **Bugfix**: State no longer accumulates between iterations — Character/Weapon/Effects now reset each loop
+- **Refactor**: Renamed `defence` → `hasArmour`, `trueDefence` → `trueResist` for clarity
+- **Refactor**: Removed unused duplicate boss instances (`toad`, `guardian`)
+- **Docs**: Changelog moved to UPDATES.md; added README.md
+- **Build**: Added .gitignore (build/, .vscode/, object files)
+
 ## v1.2
 - Added option to continue or exit the program after calculation
 - Program window stays open until Enter is pressed on exit

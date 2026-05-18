@@ -3,7 +3,7 @@
 #include <cmath>
 #include <limits>
 
-Boss::Boss(float h, int d, int td) : health(h), trueDefence(td), defence(d ? 1 : 0) {}
+Boss::Boss(float h, int armour, int tResist) : health(h), trueResist(tResist), hasArmour(armour ? 1 : 0) {}
 
 float Boss::dmg(const Character& attacker, const EffectManager& currentEffects, const Weapon& currentWeapon) const {
     float charDmgBonus = attacker.getCharacterDmgBonus();
@@ -12,10 +12,10 @@ float Boss::dmg(const Character& attacker, const EffectManager& currentEffects, 
     float trueDmg = currentWeapon.getTrueDamage();
 
     float hitDmg = 0.0f;
-    if (defence > 0) {
-        hitDmg = (std::sqrt((dfltDmg * charDmgBonus * effectMultiplier) * 4.0f + 64.0f) - 8.0f) * 4.0f + trueDmg - trueDefence;
+    if (hasArmour > 0) {
+        hitDmg = (std::sqrt((dfltDmg * charDmgBonus * effectMultiplier) * 4.0f + 64.0f) - 8.0f) * 4.0f + trueDmg - trueResist;
     } else {
-        hitDmg = (dfltDmg * charDmgBonus * effectMultiplier) + trueDmg - trueDefence;
+        hitDmg = (dfltDmg * charDmgBonus * effectMultiplier) + trueDmg - trueResist;
     }
 
     return hitDmg;
@@ -104,7 +104,7 @@ int WagbossRobotPosessed::hitsToKill(const Character& attacker, const EffectMana
     float dfltDmg = currentWeapon.getDfltDamage();
     float trueDmg = currentWeapon.getTrueDamage();
 
-    float hit_FFase = (dfltDmg * charDmgBonus * EffectMultiplier) + trueDmg - trueDefence;
+    float hit_FFase = (dfltDmg * charDmgBonus * EffectMultiplier) + trueDmg - trueResist;
     if (hit_FFase <= 0.0f) return std::numeric_limits<int>::max();
 
     int baseHits = static_cast<int>(std::ceil(health / per));

@@ -45,7 +45,7 @@ int main() {
     int choice_boss = 14;
     char continueChoice = ' ';
 
-    std::cout << "Select the terms for calculation: \n First - Character:\n  1) Wigfrid (x1.25)\n  2) Wolvgan (x2.0 in stongest form)\n  3) Wess (x0.75)\n  4) Other characters (deafoult dmg)\n";
+    std::cout << "Select the terms for calculation: \n First - Character:\n  1) Wigfrid (x1.25)\n  2) Wolvgan (x2.0 in stongest form)\n  3) Wess (x0.75)\n  4) Wendy (x0.75)\n  5) Other characters (deafoult dmg)\n";
     std::cin >> choice_character;
     handleBadInput();
     switch (choice_character)
@@ -53,6 +53,7 @@ int main() {
         case 1: Character.selectWigfrid(); break;
         case 2: Character.selectWolvgang(); break;
         case 3: Character.selectWess(); break;
+        case 4: Character.selectWendy(); break;
         default: Character.selectOther(); break;
     };
 

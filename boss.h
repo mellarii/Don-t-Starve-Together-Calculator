@@ -13,11 +13,11 @@ constexpr float INFINITE_HITPOINTS = std::numeric_limits<float>::max();
 class Boss {
 protected:
     float health;
-    int trueDefence;
-    int defence;
+    int trueResist;
+    int hasArmour;
 
 public:
-    Boss(float h, int d, int td);
+    Boss(float h, int armour, int tResist);
     virtual ~Boss() = default;
 
     float dmg(const Character& attacker, const EffectManager& currentEffects, const Weapon& currentWeapon) const;
