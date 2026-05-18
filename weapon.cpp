@@ -7,10 +7,6 @@
 
 constexpr int INFINITE_USAGE = std::numeric_limits<int>::max();
 
-float dfltDmg = 10.0f;
-float trueDmg = 0.0f;
-int maxUsage = INFINITE_USAGE;
-
 void Weapon::selectHand() {
     dfltDmg = 10.0f;
     trueDmg = 0.0f;

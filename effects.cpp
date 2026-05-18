@@ -6,8 +6,6 @@
 #include <string>
 #include <utility>
 
-float totalEffectMultiplier = 1.0f;
-
 void EffectManager::applyWeakness() { 
     totalEffectMultiplier *= 1.25f; 
 }
@@ -17,5 +15,9 @@ void EffectManager::moonEnemyWeakness() {
 void EffectManager::shadowEnemyWeakness() {
     totalEffectMultiplier *= 1.10f;
 }
+void EffectManager::applyBurn() {
+    totalEffectMultiplier *= 1.25f;
+}
+
 
 float EffectManager::getMultiplier() const { return totalEffectMultiplier; };

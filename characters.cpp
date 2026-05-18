@@ -18,4 +18,8 @@ void Character::selectWigfrid() {
     totalCharDmgBonus = 1.25f;
 }
 
+void Character::selectWendy() {
+    totalCharDmgBonus = 0.75f;
+}
+
 float Character::getCharacterDmgBonus() const { return totalCharDmgBonus; }

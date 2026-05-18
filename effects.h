@@ -10,8 +10,11 @@ class EffectManager {
     void applyWeakness();
     void moonEnemyWeakness();
     void shadowEnemyWeakness();
+    void applyBurn();
 
     float getMultiplier() const;
 };
+
+
 
 #endif

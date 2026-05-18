@@ -12,6 +12,7 @@ class Character {
     void selectWess();
     void selectWolvgang();
     void selectWigfrid();
+    void selectWendy();
 
     float getCharacterDmgBonus() const;
 };

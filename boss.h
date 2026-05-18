@@ -116,4 +116,10 @@ class TwinsOfTerror : public Boss {
     std::string name() const override;
 };
 
+class AtriumStalcer : public Boss {
+    public:
+    AtriumStalcer() : Boss(16000.0f, 0, 0) {}
+    std::string name() const override;
+};
+
 #endif // BOSS_H

@@ -93,6 +93,10 @@ std::string TwinsOfTerror::name() const {
     return "TwinsOfTerror";
 }
 
+std::string AtriumStalcer::name() const {
+    return "Atrium Stalcer";
+}
+
 int WagbossRobotPosessed::hitsToKill(const Character& attacker, const EffectManager& currentEffects, const Weapon& currentWeapon) const {
     float per = dmg(attacker, currentEffects, currentWeapon);
     float charDmgBonus = attacker.getCharacterDmgBonus();

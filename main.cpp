@@ -8,11 +8,12 @@
 
 int main() {
 
-    Character Character;
-    Weapon Weapon;
-    EffectManager Effects;
-    ToadStoolDarck toad;
-    AlterGuardian guardian;
+    auto handleBadInput = []() {
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    };
 
     Dummy Dummy;
     MotherBee motherBee;
@@ -28,11 +29,15 @@ int main() {
     Minotaur Minotaur;
     Eyeofterror Eyeofterror;
     TwinsOfTerror TwinsOfTerror;
-    Boss* selectedBoss = &Dummy;
 
     bool keepRunning = true;
 
     while (keepRunning) {
+
+    Character Character;
+    Weapon Weapon;
+    EffectManager Effects;
+    Boss* selectedBoss = &Dummy;
 
     int choice_character = 3;
     int choice_weapon = 13;
@@ -42,6 +47,7 @@ int main() {
 
     std::cout << "Select the terms for calculation: \n First - Character:\n  1) Wigfrid (x1.25)\n  2) Wolvgan (x2.0 in stongest form)\n  3) Wess (x0.75)\n  4) Other characters (deafoult dmg)\n";
     std::cin >> choice_character;
+    handleBadInput();
     switch (choice_character)
     {
         case 1: Character.selectWigfrid(); break;
@@ -58,6 +64,7 @@ int main() {
     std::cout << "5) Void Lunar Part  11) Wigfrid's spear\n";
     std::cout << "6) Night Sword      12) Rabbit King Spear\n";
     std::cin >> choice_weapon;
+    handleBadInput();
     switch (choice_weapon)
     {
         case 1: Weapon.selectHamBat(); break;
@@ -77,6 +84,7 @@ int main() {
 
     std::cout << "\nNow select Debufs (at bosses):\n  1) Weakness (x1.25)\n  2) Moon Enemy Weakness (x1.10 and if character have buffs in his skill tree)\n  3) Shadow Enemy Weakness (x1.10 and if character have buffs in his skill tree)\n  4) None\n";
     std::cin >> choice_debuffs;
+    handleBadInput();
     switch (choice_debuffs)
     {
         case 1: Effects.applyWeakness(); break;
@@ -93,11 +101,12 @@ int main() {
     std::cout << "5) AntLion          11)Minotaur\n";
     std::cout << "6) WagBoss Possesed 12) Eye of Terror\n";
     std::cin >> choice_boss;
+    handleBadInput();
     switch (choice_boss)
     {
         case 1: selectedBoss = &motherBee; break;
-        case 2: selectedBoss = &toad; break;
-        case 3: selectedBoss = &guardian; break;
+        case 2: selectedBoss = &ToadStoolDarck; break;
+        case 3: selectedBoss = &AlterGuardian; break;
         case 4: selectedBoss = &Klaus; break;
         case 5: selectedBoss = &AntLion; break;
         case 6: selectedBoss = &WagbossRobotPosessed; break;
@@ -129,6 +138,7 @@ int main() {
 
     std::cout << "Do you want to continue? (Y/N)";
     std::cin >> continueChoice;
+    handleBadInput();
 
     if (continueChoice != 'Y' and continueChoice != 'y') {
         keepRunning = false;

@@ -5,9 +5,9 @@
 
 class Weapon {
     private:
-    float dfltDmg;
-    float trueDmg;
-    int maxUsage;
+    float dfltDmg = 10.0f;
+    float trueDmg = 0.0f;
+    int maxUsage = 1000000000;
     public:
     void selectHand();
     void selectRuinsBat();
