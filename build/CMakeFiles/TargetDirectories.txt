@@ -1,3 +1,0 @@
-C:/Users/art76/OneDrive/Desktop/projects/DSTCalculator/build/CMakeFiles/main_app.dir
-C:/Users/art76/OneDrive/Desktop/projects/DSTCalculator/build/CMakeFiles/edit_cache.dir
-C:/Users/art76/OneDrive/Desktop/projects/DSTCalculator/build/CMakeFiles/rebuild_cache.dir
