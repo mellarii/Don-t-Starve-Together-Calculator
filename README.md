@@ -2,6 +2,11 @@
 
 A CLI calculator for Don't Starve Together that computes damage per hit, hits to kill, and weapon requirements for boss fights.
 
+# Patchnotes [📄](Don-t-Starve-Together-Calculator/UPDATES.md)
+
+A detailed description of the updates with all the new features can be found in the UPDATES.md file.
+
+
 ## Build & Run
 
 ```bash
